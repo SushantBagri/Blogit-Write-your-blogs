@@ -1,0 +1,16 @@
+ body{
+        background-color: rgb(184, 173, 157);
+    }
+
+.hc{
+    background-color: rgba(199, 123, 0, 1);
+}
+.card{
+    margin: 40px 10%;
+}
+
+@media only screen and (max-width: 800px) {
+    .card{
+        margin: 0 0 100px 0;
+    }
+  }

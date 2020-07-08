@@ -1,0 +1,21 @@
+body{
+  background-color: #c7c7c7;
+}
+
+  .creater{
+    font-family: 'Fredoka One', cursive;
+    background-color: rgb(228, 208, 165);
+    display: flex;
+    margin: 10%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    border: 6px solid grey;
+    padding: 2% 0;
+  }
+  .fl-c{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }

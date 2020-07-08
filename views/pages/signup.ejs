@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <link rel="shortcut icon" href="static/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Piedra&display=swap" rel="stylesheet">
+</head>
+<body class="text-center" data-gr-c-s-loaded="true">
+    <form action="/signup" method="POST" class="form-signin ">
+        <img class="mb-4" src="static/logo.png" alt="" width="300" height="170">
+        <h1 class="mb-3 font-weight-normal" style="font-family: 'Piedra', cursive;">Sign up</h1>
+        
+        <div>
+        <label for="name" class="sr-only"></label>
+        <input class="form-control" type="text" id="name" name="name" placeholder="Name" required>
+        </div>
+        <div>
+        <label for="email" class="sr-only"></label>
+        <input class="form-control" type="email" id="email" name=email placeholder="Email address" required>
+        </div>
+        <div>
+        <label for="password" class="sr-only"></label>
+        <input class="form-control" type="password" id="password" name="password" placeholder="Password" required>
+        </div>
+        <div>
+            <button class="btn btn-lg btn-secondary btn-block" type="submit">Sign up </button>
+        </div>
+        <% if(message.length>0){%>
+            <div class="alert alert-danger" role="alert">
+                <%=message%>
+            </div>
+            <div>
+                <a href="/login" class="btn btn-lg btn-primary btn-block">Login</a>
+            </div>
+        <% } %>
+    </form>
+    
+</body>
+</html>

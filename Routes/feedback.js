@@ -1,0 +1,11 @@
+module.exports=(app,knex)=>{
+    app.post('/feedback_us',(req,res)=>{
+        knex('user_feedback').insert(req.body)
+        .then((data)=>{
+            res.redirect('/')
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+    })
+}

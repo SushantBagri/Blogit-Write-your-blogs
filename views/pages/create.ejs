@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="static/logo.png" type="image/x-icon">
+  <!-- CSS only -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+  <!-- JS, Popper.js, and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/static/create.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Noto+Sans+KR:wght@700&family=Righteous&family=Ubuntu:wght@500&display=swap"
+    rel="stylesheet">
+  <title>BlogIt| create</title>
+</head>
+
+<body>
+
+  <!--Navbar -->
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark default-color bg-dark fixed-top">
+  <img width="100" height="80" class="navbar-brand d-inline-block align-top" alt="" loading="lazy"
+      src="/static/logo.png" alt="logo">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+    aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" style="font-family: 'Fredoka One', cursive;" id="navbarSupportedContent-333">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link text-info" href="/"><i class="fa fa-home" style="margin: 0 20px; font-size:36px"></i>
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-info" style=" font-size: 1.3em; margin: 0 20px;" href="#" data-toggle="modal" data-target="#modalContactForm">Feedback</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto nav-flex-icons">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-user-circle-o text-warning" style=" font-size: 1.5em;"><span style="font-family: 'Fredoka One', cursive";>
+            Hi <%=decoded_data.name%> !
+          </span></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right dropdown-default"
+          aria-labelledby="navbarDropdownMenuLink-333">
+          <a class="dropdown-item" href="/user/<%=decoded_data.name%>">View your all Blogs.</a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item" data-toggle="modal" data-target="#logoutModal">logout</a>
+            <a href="#" class="dropdown-item" data-toggle="modal" data-target="#deactivateModal">Deactivate your
+              Account</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!--/.Navbar -->
+  <div style="margin: 14rem 0;">
+    <form action="/create" method="POST" class="creater" >
+      <h1>Blog</h1>
+      <div class="form-group fl-c">
+        <label for="description">Tittle for your blog</label>
+        <input type="text" class="form-control" id="description" name='description' placeholder="Heading">
+      </div>
+
+      <!--Textarea with icon prefix-->
+      <div class="form-group fl-c">
+        <label for="text" class="text-center">Write your blog here</label>
+        <textarea name="text" id="text" class="form-control" cols="100" rows="10" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-outline-dark btn-rounded waves-effect"><i
+        class="material-icons">border_color</i> create a new post</button>
+  </div>
+  </form>
+  </div>
+  <!-- Footer -->
+  <footer class="page-footer font-small blue bg-dark fixed-bottom" style="font-family: 'Righteous', cursive;">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3 " style=" color: goldenrod;">© 2020 Copyright Developed by:
+      <a class="text-primary" target="_blank" href="https://www.facebook.com/sushant.bagri.393"> Sushant Bagri</a>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
+  <!-- Logout modal -->
+  <div class="modal" id="logoutModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4>Log Out <i class="fa fa-lock"></i></h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+              aria-hidden="true">×</span></button>
+        </div>
+        <div class="modal-body">
+          <p><i class="fa fa-question-circle"></i> Are you sure you want to log-off? <br /></p>
+          <div class="actionsBtns">
+            <form action="/log_out?_method=DELETE" method="POST">
+              <button type="submit" class="btn btn-default btn-primary"> Logout</button>
+              <button class="btn btn-default" data-dismiss="modal">Cancel</button>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- deactivate your account -->
+  <div class="modal" id="deactivateModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4>Deactivate <i class="fa fa-trash"></i></h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+              aria-hidden="true">×</span></button>
+        </div>
+        <div class="modal-body">
+          <p><i class="fa fa-question-circle"></i> Are you sure you want to deacivate? If you doing this your all
+            blogs is also deleted <br /></p>
+          <div class="actionsBtns">
+            <form action="/deactivate_user?_method=DELETE" method="POST">
+              <button type="submit" class="btn btn-default btn-danger"> Deactivate</button>
+              <button class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <!--Modal: Contact form-->
+  <div class="modal-dialog cascading-modal" role="document">
+
+    <!--Content-->
+    <div class="modal-content">
+
+      <!--Header-->
+      <div class="modal-header primary-color white-text">
+        <h4 class="title">
+          <i class="fa fa-pencil-alt"></i> Feedback</h4>
+        <button type="button" class="close waves-effect waves-light" data-dismiss="modal"
+          aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <!--Body-->
+      <div class="modal-body">
+        <form action="/feedback_us" method="POST">
+
+          <!-- Material input name -->
+          <div class="md-form form-sm">
+            
+          <input type="text" id="materialFormNameModalEx1" name="name" class="form-control form-control-sm" required>
+          <label for="materialFormNameModalEx1" >Your name</label>
+        </div>
+
+        <!-- Material input email -->
+        <div class="md-form form-sm">
+          <i class="fa fa-envelope prefix"></i>
+          <input type="email" id="materialFormEmailModalEx1" name="email" class="form-control form-control-sm" required>
+          <label for="materialFormEmailModalEx1">Your email</label>
+        </div>
+
+        <!-- Material input subject -->
+        <div class="md-form form-sm">
+          <i class="fa fa-tag prefix"></i>
+          <input type="text" id="materialFormSubjectModalEx1" name="subject" class="form-control form-control-sm" required>
+          <label for="materialFormSubjectModalEx1">Subject</label>
+        </div>
+        
+        <!-- Material textarea message -->
+        <div class="md-form form-sm">
+          <i class="fa fa-pencil-alt prefix"></i>
+          <textarea type="text" name="feedaback" id="materialFormMessageModalEx1"
+          class="md-textarea form-control" required ></textarea>
+          <label for="materialFormMessageModalEx1">Your message</label>
+        </div>
+        
+        <div class="text-center mt-4 mb-2">
+          <button type="submit" class="btn btn-primary">Send
+            <i class="fa fa-send ml-2"></i>
+          </button>
+        </div>
+      </form>
+        
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+  <!--/Modal: Contact form-->
+</div>
+
+
+</body>
